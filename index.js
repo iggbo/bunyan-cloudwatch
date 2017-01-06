@@ -15,7 +15,8 @@ function CloudWatchStream(opts) {
   this.logGroupName = opts.logGroupName;
   this.logStreamName = opts.logStreamName;
   this.writeInterval = opts.writeInterval || 0;
-
+  this.onError = opts.onError;
+  
   this.cloudwatch = new AWS.CloudWatchLogs(opts.cloudWatchLogsOptions);
   this.queuedLogs = [];
   this.sequenceToken = null;
